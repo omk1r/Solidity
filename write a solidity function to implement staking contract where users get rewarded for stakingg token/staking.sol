@@ -30,7 +30,7 @@ contract Staking is ERC20 {
     function claim() public {
         require(staked[msg.sender] > 0,"you haven't staked any token");
         uint256 secondsStaked = block.timestamp - stakedTs[msg.sender] ;
-        uint256 reward = staked[msg.sender] * secondsStaked / 3.154e7;
+        uint256 reward = staked[msg.sender] * secondsStaked / 10000000;
         _mint(msg.sender,reward);
         stakedTs[msg.sender] = 0;
     }
